@@ -41,4 +41,10 @@ private fun processarAumentoDeSalario() {
     }
 
     println(salarios.contentToString())
+
+    salarios.forEachIndexed { i, salario ->
+        salarios[i] = salario * aumento
+    }
+
+    println(salarios.contentToString())
 }
