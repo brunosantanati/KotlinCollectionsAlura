@@ -1,19 +1,20 @@
 package br.com.alura.array
 
 fun main() {
-    val idade1 = 25
-    val idade2 = 19
-    val idade3 = 33
-    val idade4 = 20
+    val idades = IntArray(4)
+    idades[0] = 25
+    idades[1] = 19
+    idades[2] = 33
+    idades[3] = 20
 
-    val maiorIdade = if (idade1 > idade2 && idade1 > idade3 && idade1 > idade4) {
-        idade1
-    } else if (idade2 > idade3 && idade2 > idade4) {
-        idade2
-    } else if (idade3 > idade4) {
-        idade3
+    val maiorIdade = if (idades[0] > idades[1] && idades[0] > idades[2] && idades[0] > idades[3]) {
+        idades[0]
+    } else if (idades[1] > idades[2] && idades[1] > idades[3]) {
+        idades[1]
+    } else if (idades[2] > idades[3]) {
+        idades[2]
     } else {
-        idade4
+        idades[3]
     }
 
     println(maiorIdade)
