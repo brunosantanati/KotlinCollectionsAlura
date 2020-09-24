@@ -29,8 +29,22 @@ fun main() {
     //println(gastoInicial + (gastoInicial * 6.toBigDecimal()))
 
     //média dos 3 maiores salários
-    val media = salariosComAumento.sorted().takeLast(3).toTypedArray().media()
+    val media = salariosComAumento
+        .sorted()
+        .takeLast(3)
+        .toTypedArray()
+        .media()
+
     println(media)
+
+    //média dos 3 menores salarios
+    val mediaMenoresSalarios = salariosComAumento
+        .sorted()
+        .take(3)
+        .toTypedArray()
+        .media()
+    
+    println(mediaMenoresSalarios)
 
 }
 
