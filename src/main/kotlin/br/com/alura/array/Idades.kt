@@ -36,5 +36,7 @@ fun main() {
     val busca2 = idades.find { it > 18 }
     println("Busca: $busca2")
 
-
+    val notas = intArrayOf(7, 5, 8, 9)
+    val mediaTresMaioresNotas = notas.sorted().takeLast(3).average()
+    println("Média 3 maiores notas: $mediaTresMaioresNotas")
 }
