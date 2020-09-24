@@ -23,7 +23,7 @@ fun main() {
 
     val busca = idades.find { it >= 18 }
     println("Busca: $busca")
-    
+
     val busca2 = idades.find { it > 18 }
     println("Busca: $busca2")
 }
