@@ -43,7 +43,7 @@ fun main() {
         .take(3)
         .toTypedArray()
         .media()
-    
+
     println(mediaMenoresSalarios)
 
 }
