@@ -8,6 +8,7 @@ fun main() {
 
     println(salarios.contentToString())
 
+    //aumento de salários
     val aumento = "1.1".toBigDecimal()
     val salariosComAumento: Array<BigDecimal> = salarios
         .map { salario -> calculaAumentoRelativo(salario, aumento) }
@@ -15,21 +16,24 @@ fun main() {
 
     println(salariosComAumento.contentToString())
 
+    //gasto mensal/inicial com pagamento de salários
     val gastoInicial = salariosComAumento.somatoria()
     println(gastoInicial)
 
+    //gasto inicial mais o gasto com seis meses de pagamento de salários
     val meses = 6.toBigDecimal()
     val gastoTotal = salariosComAumento.fold(gastoInicial) { acumulador, salario ->
         acumulador + (salario * meses).setScale(2, RoundingMode.UP)
     }
     println(gastoTotal)
     //println(gastoInicial + (gastoInicial * 6.toBigDecimal()))
-}
 
-fun bigDecimalArrayOf(vararg valores: String): Array<BigDecimal> {
-    return Array<BigDecimal>(valores.size) { i ->
-        valores[i].toBigDecimal()
-    }
+    //média dos 3 maiores salários
+    val salariosOrdenados = salariosComAumento.sorted()
+    val tresUltimosSalarios: Array<BigDecimal> = salariosOrdenados.takeLast(3).toTypedArray()
+    val media = tresUltimosSalarios.media()
+    println(media)
+
 }
 
 private fun calculaAumentoRelativo(salario: BigDecimal, aumento: BigDecimal): BigDecimal {
@@ -38,8 +42,4 @@ private fun calculaAumentoRelativo(salario: BigDecimal, aumento: BigDecimal): Bi
     } else {
         (salario * aumento).setScale(2, RoundingMode.UP)
     }
-}
-
-fun Array<BigDecimal>.somatoria(): BigDecimal{
-    return this.reduce { acumulador, valor -> acumulador + valor }
 }
