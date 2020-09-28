@@ -51,6 +51,11 @@ fun main() {
     ordenadoPorTitulo.imprimeComMarcadores()
 
     meusLivros.sortedBy { it.autor }.imprimeComMarcadores()
+
+    listaDeLivros
+        .filter { it.autor == "João Guimarães Rosa" }
+        .sortedBy { it.anoPublicacao }
+        .imprimeComMarcadores()
 }
 
 fun List<Livro>.imprimeComMarcadores(){
