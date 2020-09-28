@@ -43,19 +43,24 @@ fun main() {
 
     meusLivros.imprimeComMarcadores()
 
+    println("Ordenado por ano de publicação")
     val ordenadoAnoPublicacao: List<Livro> = meusLivros.sorted()
-
     ordenadoAnoPublicacao.imprimeComMarcadores()
 
+    println("Ordenado por título")
     val ordenadoPorTitulo = meusLivros.sortedBy { it.titulo }
     ordenadoPorTitulo.imprimeComMarcadores()
 
+    println("Ordenado por autor")
     meusLivros.sortedBy { it.autor }.imprimeComMarcadores()
 
-    listaDeLivros
+    val titulos: List<String> = listaDeLivros
         .filter { it.autor.startsWith("J") }
         .sortedBy { it.anoPublicacao }
-        .imprimeComMarcadores()
+        .map { it.titulo }
+
+    println("Ordenado por ano de publicação")
+    println(titulos)
 }
 
 fun List<Livro>.imprimeComMarcadores(){
