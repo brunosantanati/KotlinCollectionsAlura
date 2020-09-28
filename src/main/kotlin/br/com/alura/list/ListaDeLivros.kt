@@ -54,12 +54,8 @@ fun main() {
     println("Ordenado por autor")
     meusLivros.sortedBy { it.autor }.imprimeComMarcadores()
 
-    val titulos: List<String> = listaDeLivros
-        .filter { it.autor.startsWith("J") }
-        .sortedBy { it.anoPublicacao }
-        .map { it.titulo }
-
     println("Ordenado por ano de publicação")
+    val titulos: List<String> = listaDeLivros.titulosPorAnoPublicacaoDoAutor("João")
     println(titulos)
 }
 
@@ -68,4 +64,12 @@ fun List<Livro>.imprimeComMarcadores(){
         " - ${it.titulo} de ${it.autor} - ${it.anoPublicacao}"
     }
     println(" #### Lista de Livros #### \n$textoFormatado")
+}
+
+fun MutableList<Livro>.titulosPorAnoPublicacaoDoAutor(prefixoAutor: String)
+        : List<String> {
+    return this
+        .filter { it.autor.startsWith(prefixoAutor) }
+        .sortedBy { it.anoPublicacao }
+        .map { it.titulo }
 }
