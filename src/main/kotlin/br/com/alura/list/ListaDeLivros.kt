@@ -59,13 +59,6 @@ fun main() {
     println(titulos)
 }
 
-fun List<Livro>.imprimeComMarcadores(){
-    val textoFormatado = this.joinToString(separator = "\n") {
-        " - ${it.titulo} de ${it.autor} - ${it.anoPublicacao}"
-    }
-    println(" #### Lista de Livros #### \n$textoFormatado")
-}
-
 fun MutableList<Livro>.titulosPorAnoPublicacaoDoAutor(prefixoAutor: String)
         : List<String> {
     return this
